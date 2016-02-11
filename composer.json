@@ -1,0 +1,21 @@
+{
+    "name": "sibds/yii2-synctranslit",
+    "description": "Widget for transliteration of text in the URL (on JavaScript)",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"," jquery"," syncTranslit"," plugin"," transliteration"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vadim Mazur",
+            "email": "mazurva@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "sibds\\widgets\\": ""
+        }
+    }
+}
