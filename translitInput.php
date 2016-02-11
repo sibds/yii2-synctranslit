@@ -17,12 +17,15 @@ use yii\bootstrap\InputWidget;
 class translitInput extends InputWidget
 {
     public $fromField;
-    public $template = '{icon}{input}';
+
     public $icon = 'link';
 
     public $translitOptions = [];
 
     public function run(){
+
+        echo Html::beginTag('div', ['class'=>'input-group']);
+
         if ($this->hasModel()) {
             $replace['{input}'] = Html::activeTextInput($this->model, $this->attribute, $this->options);
         } else {
@@ -30,9 +33,11 @@ class translitInput extends InputWidget
         }
 
         if($this->icon!='')
-            $replace['{icon}'] = Icon::show($this->icon, [], Icon::FA);
+            $replace['{icon}'] = Icon::show($this->icon, ['class'=>'input-group-addon'], Icon::FA);
 
         echo strtr($this->template, $replace);
+
+        echo Html::endTag('div');
 
         Assets::register($this->getView());
     }
