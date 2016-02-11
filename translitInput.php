@@ -10,6 +10,7 @@ namespace sibds\widgets;
 
 
 use kartik\icons\Icon;
+use sibds\widgets\synctranslit\Assets;
 use yii\bootstrap\Html;
 use yii\bootstrap\InputWidget;
 
@@ -33,6 +34,6 @@ class translitInput extends InputWidget
 
         echo strtr($this->template, $replace);
 
-        synctranslit\Assets::register($this->getView());
+        Assets::register($this->getView());
     }
 }
