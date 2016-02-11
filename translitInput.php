@@ -17,7 +17,7 @@ use yii\bootstrap\InputWidget;
 class translitInput extends InputWidget
 {
     public $fromField;
-
+    public $template = '{icon}{input}';
     public $icon = 'link';
 
     public $translitOptions = [];
