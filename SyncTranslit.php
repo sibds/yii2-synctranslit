@@ -9,7 +9,9 @@
 namespace sibds\widgets\synctranslit;
 
 
-class SyncTranslit extends
+use yii\base\Widget;
+
+class SyncTranslit extends Widget
 {
 
 }
