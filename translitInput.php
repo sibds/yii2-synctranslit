@@ -26,6 +26,14 @@ class translitInput extends InputWidget
 
         echo Html::beginTag('div', ['class'=>'input-group']);
 
+        if(!isset($this->options['class']))
+            $this->options['class'] = 'form-control';
+
+        $iconId = 'icon-'.$this->options['id'];
+
+        if(!isset($this->options['aria-describedby']))
+            $this->options['aria-describedby'] = $iconId;
+
         if ($this->hasModel()) {
             $replace['{input}'] = Html::activeTextInput($this->model, $this->attribute, $this->options);
         } else {
@@ -33,12 +41,27 @@ class translitInput extends InputWidget
         }
 
         if($this->icon!='')
-            $replace['{icon}'] = Icon::show($this->icon, ['class'=>'input-group-addon'], Icon::FA);
+            $replace['{icon}'] = Html::tag('span',
+                Icon::show($this->icon, [], Icon::FA),
+                ['class'=>'input-group-addon', 'id'=>$iconId]);
 
         echo strtr($this->template, $replace);
 
         echo Html::endTag('div');
 
-        Assets::register($this->getView());
+        $view = $this->getView();
+
+
+        Assets::register($view);
+
+        $idMaster = $this->hasModel() ? Html::getInputId($this->model, $this->fromField) : $this->fromField;
+        $idSlave = $this->options['id'];
+        $view->registerJs("
+        $('#$idMaster').syncTranslit({
+            destination: '$idSlave',
+            type: 'url',
+            caseStyle: 'lower',
+            urlSeparator: '-'
+        });");
     }
 }
