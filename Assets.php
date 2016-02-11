@@ -3,7 +3,6 @@
 namespace sibds\widgets\synctranslit;
 
 use yii\web\AssetBundle;
-use yii\web\JqueryAsset;
 
 class Assets extends AssetBundle
 {
