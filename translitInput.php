@@ -10,13 +10,14 @@ namespace sibds\widgets;
 
 
 use kartik\icons\Icon;
+use yii\bootstrap\Html;
 use yii\bootstrap\InputWidget;
 
 class translitInput extends InputWidget
 {
     public $fromField;
     public $template = '{icon}{input}';
-    public $icon = '';
+    public $icon = 'link';
 
     public $translitOptions = [];
 
@@ -28,7 +29,7 @@ class translitInput extends InputWidget
         }
 
         if($this->icon!='')
-            $replace['{icon}'] = Icon::show('');
+            $replace['{icon}'] = Icon::show($this->icon, [], Icon::FA);
 
         echo strtr($this->template, $replace);
 
