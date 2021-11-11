@@ -43,7 +43,7 @@ class translitInput extends InputWidget
         if($this->icon!='')
             $replace['{icon}'] = Html::tag('span',
                 Icon::show($this->icon, [], Icon::FA),
-                ['class'=>'input-group-addon', 'id'=>$iconId]);
+                ['class'=>'input-group-text', 'id'=>$iconId]);
 
         echo strtr($this->template, $replace);
 
