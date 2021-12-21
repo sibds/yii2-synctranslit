@@ -28,4 +28,9 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \sibds\widgets\SyncTranslit::widget(); ?>```
+<?php
+ echo $form->field($model, 'name')->textInput(['maxlength' => true]);
+ 
+ echo $form->field($model, 'alias')->widget(\sibds\widgets\translitInput::className(), ['fromField' => 'name']);
+?>
+```
