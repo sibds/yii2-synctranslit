@@ -11,8 +11,8 @@ namespace sibds\widgets;
 
 use kartik\icons\Icon;
 use sibds\widgets\synctranslit\Assets;
-use yii\bootstrap\Html;
-use yii\bootstrap\InputWidget;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\InputWidget;
 
 class translitInput extends InputWidget
 {
